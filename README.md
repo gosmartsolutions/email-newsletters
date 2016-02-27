@@ -2,6 +2,9 @@
 
 With the recent announcement about Mandrill, we wanted to provide a way to leverage other email API's. This is a simple program that allows you to easily send emails using both Mailgun and SendGrid. You can choose to use both API's by rotating email sending between the two or you can simply choose to use one or the other. The benefit is you are not locked into only 1 provider and can leverage both if wanted. We may add additional email API services in the future.
 
+#Installation
+Please read the index.html file for details on how to install and run this program.
+
 #Email Templates 
 Add email templates to a table, set a schedule date, from name, from email and more. Supports both HTML & plain text emails.
 
