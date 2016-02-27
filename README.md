@@ -19,4 +19,5 @@ NO GUARANTEES ON QUALITY OR THAT IT WILL WORK FOR YOU
 #NO GUARANTEES ON QUALITY OR THAT IT WILL WORK FOR YOU
 THIS IS A QUICK SIDE PROJECT WE PUT TOGETHER THAT WE ARE HOPING HELPS SOME. There may be bugs that we don't know about and that may break things. If you find any, please let us know. Keep in mind however that we work full-time and may be slow to change requests/bug fixes. Feel free to add your own contributions that you feel others will benefit from and open a pull request. Read below if you want to hire us for customizations. 
 
-#Would you like help installing this on your server or do you need help with customization? Contact Us at http://www.gosmartsolutions.com/#contact and we'll provide you with a quote based on your requirements.
+#Want to hire us for customization?
+Would you like help installing this on your server or do you need help with customization? Contact Us at http://www.gosmartsolutions.com/#contact and we'll provide you with a quote based on your requirements.
