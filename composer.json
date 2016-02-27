@@ -1,0 +1,9 @@
+{
+
+  "require": {
+
+    "mailgun/mailgun-php": "~1.7.2",
+    "sendgrid/sendgrid": "~4.0"
+  }
+
+}

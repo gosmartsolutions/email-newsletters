@@ -1,0 +1,3 @@
+Options +FollowSymLinks
+RewriteEngine on
+RewriteRule ^(.*)_(.*)_(.*)\.gif$ link.php?uid=$1&tid=$2&type=$3 [L]
