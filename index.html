@@ -22,7 +22,7 @@
       <div class="header clearfix">
         <nav>
           <ul class="nav nav-pills pull-right">
-            <li role="presentation" class="active"><a href="#instruct">Instructions</a></li>
+            <li role="presentation"><a href="#instruct">Instructions</a></li>
             <li role="presentation"><a href="https://github.com/gosmartsolutions/mandrill-alternative" target="_blank">Download from GitHub</a></li>
             <li role="presentation"><a href="http://www.gosmartsolutions.com/#contact" target="_blank">Hire Us For Customization</a></li>
           </ul>
@@ -47,18 +47,23 @@
 
           <h4>Using the send_newsletter.php script</h4>
           <p>By default the script will pull the default paramaters that you have set in your applications/Config.php file. You can override these defaults with querystring values for server and limit. Example: send_newsletter.php?server=sendgrid&amp;limit=100 will send the newsletter using sendgrid and will limit the send to 100</p>
+          
+          <h4>Add email templates</h4>
+          <p>This script does not have a web interface for adding email templates but you can add email templates directly in the "email_templates" database table . Or you can <a href="http://www.gosmartsolutions.com/#contact" target="_blank">hire us to create an email templates management web interface</a>.</p>
         </div>
 
         <div class="col-lg-6">
            
            <h4>Email send log</h4>
-          <p>The system keeps track of all email sent per email template in the sent_emails table. Anytime you run send_newsletter.php, it references this table to make sure it does not resend to the same email addresses for the same email template.</p>
+          <p>The system keeps track of all emails sent per email template in the sent_emails table. Anytime you run send_newsletter.php, it references this table to make sure it does not resend to the same email addresses for the same email template.</p>
           
           <h4>Open and click tracking</h4>
           <p>Open and click tracking are stored in the email_tracking table. URLs in your template are automatically re-written in order for tracking to work. You need to include the {open_bug} tag at the bottom of your template if you want to record opens.</p>
 
           <h4>Opt Out</h4>
-          <p>This script DOES NOT include any opt out features. You will need to create your own opt out form and include a link to it at the bottom of the template.</p>
+          <p>This script DOES NOT include any opt out features or forms. You will need to create your own opt out form that updates the users table when someone opts out and include a link to it at the bottom of the template. Or you can <a href="http://www.gosmartsolutions.com/#contact" target="_blank">hire us to create an opt out form for you.</a></p>
+          <h4>Upload Users & Emails</h4>
+          <p>This script does not have an interface for uploading email addresses but you can do this directly in the database by uploading your file to the users table. Or you can <a href="http://www.gosmartsolutions.com/#contact" target="_blank">hire us to create an email upload web interface.</a></p>
         </div>
       </div>
 
