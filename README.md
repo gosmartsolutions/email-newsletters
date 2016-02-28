@@ -4,8 +4,9 @@ With the recent announcement about Mandrill, we wanted to provide a Mandrill alt
 
 #Installation
 You need PHP 5+, MySQL and Composer installed on your server. You also need PDO enabled on the server.
-1. Import the sql/mandrill-alternative-tables.sql file into your MySQL database
-2. Change the applications/Config.php file with your database settings, your sendgrid and mailgun api keys and other settings.
+
+1. Import the sql/mandrill-alternative-tables.sql file into your MySQL database.
+2. Change the applications/Config.php file with your database settings, sendgrid & mailgun api keys and other settings.
 3. Upload all files to the web directory on your domain where you want this to reside.
 4. Navigate to the web url where it is installed and read through further detailed instructions on the index landing page.
 
