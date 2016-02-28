@@ -4,11 +4,10 @@ With the recent announcement about Mandrill, we wanted to provide a Mandrill alt
 
 #Installation
 You need PHP 5+, MySQL and Composer installed on your server. You also need PDO enabled on the server.
-1.) Import the sql/mandrill-alternative-tables.sql file into your MySQL database
-2.) Change the applications/Config.php file with your database settings, your sendgrid and mailgun api keys and other settings.
-3.) Upload all files to the web directory on your domain where you want this to reside.
-
-Please read the index.html file for more details on how to install and use this program.
+1. Import the sql/mandrill-alternative-tables.sql file into your MySQL database
+2. Change the applications/Config.php file with your database settings, your sendgrid and mailgun api keys and other settings.
+3. Upload all files to the web directory on your domain where you want this to reside.
+4. Navigate to the web url where it is installed and read through further detailed instructions on the index landing page.
 
 #Email Templates 
 Add email templates to a table, set a schedule date, from name, from email and more. Supports both HTML & plain text emails.
@@ -23,7 +22,7 @@ An sql file is provided with the tables that are used in this example. Import th
 Modify the applications/Config.php with your settings. NOTE: You need to have composer installed on your server. We included the needed composer.json and lock files along with all packages needed within the vendor directory. You should be able to upload everything as is to your domain or a sub directory on your domain and it should work as long as composer is installed.
 
 #NO GUARANTEES
-This is a side project we put together to help those who need to migrate away from Mandrill. There may be bugs that we don't know about. If you find any, please let us know. Keep in mind however that we can't guarantee we will make custom changes or additions for free. The software is provided as is. Feel free to add your own contributions and open a pull request or read below if you want to hire us for customizations.
+This is a side project we put together to help those who need to migrate away from Mandrill and who need an email sending program. There may be bugs that we don't know about. If you find any, please let us know. Keep in mind however that we can't guarantee we will make custom changes or additions for free. The software is provided as is. Feel free to add your own contributions and open a pull request or read below if you want to hire us for customizations.
 
 #Want to hire us for customizations?
 Would you like help installing this on your server or do you need help with customizations? Contact Us at http://www.gosmartsolutions.com/#contact and we'll provide you with a quote based on your requirements.
