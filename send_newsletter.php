@@ -26,14 +26,14 @@ $sendEmail = new Email();
 $email_type = 'newsletter';
 $emailTemplates = $sendEmail->getTemplates($email_type); //Get active email templates
 
-foreach ($emailTemplates as $templates):
-    $tid = $templates['unique_id'];
-    $email_subject = e($templates['email_subject']);
-    $html_body = $templates['html_body'];
-    $text_body = e($templates['text_body']);
-    $from_name = e($templates['from_name']);
-    $from_email = e($templates['from_email']);
-    $bounce_email = e($templates['bounce_email']);
+foreach ($emailTemplates as $template):
+    $tid = $template['unique_id'];
+    $email_subject = e($template['email_subject']);
+    $html_body = $template['html_body'];
+    $text_body = e($template['text_body']);
+    $from_name = e($template['from_name']);
+    $from_email = e($template['from_email']);
+    $bounce_email = e($template['bounce_email']);
     $template_sent = 0;
 
 	//Get list of user emails to send to
