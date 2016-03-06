@@ -32,7 +32,7 @@
 
       <div class="jumbotron">
         <h1>Email Sending Using SendGrid & Mailgun API's</h1>
-        <p class="lead">To send emails you need to run the script at send_newsletter.php in the root of your directory or subfolder. Example: yourdomain.com/email_send/send_newsletter.php would be how to run it if you installed this in an email_send sub directory on your main domain. Also load the sql/mandrill-alternative-tables.sql file into a MySQL database and make sure and change the settings in applications/Config.php. Users you want to email should be stored in the users table and the emails you want to send should be stored in the email_templates table. Both of these tables need to be populated in order for this program to work out of the box.</p>
+        <p class="lead">To send emails you need to run the script at send_newsletter.php in the root of your directory or subfolder. Example: yourdomain.com/email_send/send_newsletter.php would be how to run it if you installed this in an email_send sub directory on your main domain. Also load the sql/email-newsletter-tables.sql file into a MySQL database and make sure and change the settings in applications/Config.php. Users you want to email should be stored in the users table and the emails you want to send should be stored in the email_templates table. Both of these tables need to be populated in order for this program to work out of the box.</p>
         <p><a class="btn btn-lg btn-success" href="send_newsletter.php" role="button">Send Emails Now</a></p>
       </div>
 
@@ -40,7 +40,7 @@
       <a id="instruct"></a>
         <div class="col-lg-6">
           <h4>Installation</h4>
-          <p>You need PHP 5+, MySQL and Composer installed. You also need PDO enabled on the server. 1.) Import the sql/mandrill-alternative-tables.sql file into your MySQL database, 2.) Change the settings in applications/Config.php, 3.) Upload all files to the web directory on your domain where you want this to reside.</p>
+          <p>You need PHP 5+, MySQL and Composer installed. You also need PDO enabled on the server. 1.) Import the sql/email-newsletter-tables.sql file into your MySQL database, 2.) Change the settings in applications/Config.php, 3.) Upload all files to the web directory on your domain where you want this to reside.</p>
           
           <h4>Install Composer</h4>
           <p>In order for this to work out of the box you will need <a href="https://getcomposer.org/" target="_blank">Composer</a> installed on your server. Read the <a href="https://getcomposer.org/doc/00-intro.md#installation-linux-unix-osx">Composer installation instructions</a> for how to do this.</p>
