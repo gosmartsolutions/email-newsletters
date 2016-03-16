@@ -22,13 +22,13 @@ class Email
     public function getEmails($tid, $send_limit)
     {
         //Get all emails not opted out and who this template has not been sent to yet
-        if ($tid > 0 && $send_limit > 0) {
-            $query = "SELECT user_id, first_name, last_name, email FROM users ".
-                "WHERE NOT EXISTS ".
-                "(SELECT unique_id FROM sent_emails ".
-                "WHERE sent_emails.user_id = users.user_id AND sent_emails.template_id = :tid) ".
-                "AND opt_out = 0 ORDER BY user_id ASC LIMIT ".$send_limit;
-            $result = $this->db->select($query, array('tid' => $tid));
+        if ($tid > 0 && $send_limit > 0) {			
+            $query = "SELECT user_id, first_name, last_name, email FROM users " .
+			         "WHERE opt_out = 0 AND users.user_id NOT IN ".
+					 "(SELECT user_id FROM sent_emails ".
+                     "WHERE template_id = :tid) ".
+					 "ORDER BY user_id ASC LIMIT :send_limit";
+			$result = $this->db->select($query, array('tid' => $tid,'send_limit' => $send_limit));
 
             if (!empty($result)) {
                 return $result;
