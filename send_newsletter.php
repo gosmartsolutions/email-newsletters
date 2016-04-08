@@ -20,7 +20,6 @@ $mg = new Mailgun(MAILGUN_KEY);
 
 # Instantiate the Sendgrid SDK with API credentials.
 $sendgrid = new SendGrid(SENDGRID_KEY);
-$sg_email = new SendGrid\Email();
 
 $sendEmail = new Email();
 $email_type = 'newsletter';
@@ -90,6 +89,7 @@ foreach ($emailTemplates as $template):
 
         //Compose and send message to sendgrid api
         if ($server == "sendgrid") {
+		    $sg_email = new SendGrid\Email();
             $sg_email
                 ->setFromName($from_name)
                 ->setFrom($from_email)
@@ -106,6 +106,8 @@ foreach ($emailTemplates as $template):
                     echo $er;
                 }
             }
+			unset($sg_email);
+            $sg_email = '';
         }
 
         echo 'Sent to: '.$user_id.'<hr>'; //Writes out a list of ids to screen so you can view progress
