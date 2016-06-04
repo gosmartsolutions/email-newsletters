@@ -35,7 +35,7 @@ foreach ($emailTemplates as $template):
     $bounce_email = e($template['bounce_email']);
     $template_sent = 0;
 
-	//Get list of user emails to send to
+    //Get list of user emails to send to
     $userEmails = $sendEmail->getEmails($tid, $send_limit);
     $add_data = '';
 
