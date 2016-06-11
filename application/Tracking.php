@@ -25,7 +25,7 @@ class Tracking
 			"type" => $type,
 			"user_id" => $uid,
 			"template_id" => $tid,
-            "url" => $url,
+                        "url" => $url,
 			"ip" => $ipInfo['ip'],
 			"host" => $ipInfo['host'],
 			"date_added" => date("Y-m-d H:i:s")
