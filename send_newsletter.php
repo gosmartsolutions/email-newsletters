@@ -82,14 +82,14 @@ foreach ($emailTemplates as $template):
                 'subject' => $email_subject,
                 'html' => $html_email,
                 'text' => $text_email,
-                'o:tracking' => true, //set to false to disable sendgrid link re-writing and open tracking.
+                'o:tracking' => true, //set to false to disable mailgun link re-writing and open tracking.
                 'o:tag' => array('email id: ' . $tid, 'uid: ' . $user_id) //Add additional tags to the email header
             ));
         }
 
         //Compose and send message to sendgrid api
         if ($server == "sendgrid") {
-		    $sg_email = new SendGrid\Email();
+	    $sg_email = new SendGrid\Email();
             $sg_email
                 ->setFromName($from_name)
                 ->setFrom($from_email)
@@ -106,7 +106,7 @@ foreach ($emailTemplates as $template):
                     echo $er;
                 }
             }
-			unset($sg_email);
+	    unset($sg_email);
             $sg_email = '';
         }
 
