@@ -30,13 +30,13 @@ class Email
 	                FROM users 
 		       WHERE opt_out = 0 
 		         AND users.user_id NOT IN 
-			     �(SELECT user_id 
+			     (SELECT user_id 
 			        FROM sent_emails
 			       WHERE template_id = :tid) 
 		    ORDER BY user_id ASC 
 		       LIMIT :send_limit";
 	    $result = $this->db->select($query, array('tid' => $tid,'send_limit' => $send_limit));
-�
+
             if (!empty($result)) {
                 return $result;
             } else {
