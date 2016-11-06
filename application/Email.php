@@ -14,7 +14,8 @@ class Email
     public function getTemplates($email_type)
     {
         //Gets email templates
-	$query = "SELECT * FROM email_templates 
+	$query = "SELECT * 
+	            FROM email_templates 
 	           WHERE email_type = :email_type 
 	             AND active = 1 
 		     AND schedule_date < NOW()";
