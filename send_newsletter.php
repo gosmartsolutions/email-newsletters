@@ -1,4 +1,5 @@
 <?php
+
 require 'application/Common.php';
 require 'vendor/autoload.php';
 
@@ -14,11 +15,11 @@ if (empty($send_limit)) {
     $send_limit = DEFAULT_SEND_LIMIT;
 }
 
-# Instantiate the Mailgun SDK with API credentials.
+// Instantiate the Mailgun SDK with API credentials.
 use Mailgun\Mailgun;
 $mg = new Mailgun(MAILGUN_KEY);
 
-# Instantiate the Sendgrid SDK with API credentials.
+// Instantiate the Sendgrid SDK with API credentials.
 $sendgrid = new SendGrid(SENDGRID_KEY);
 
 $sendEmail = new Email();
@@ -35,28 +36,28 @@ foreach ($emailTemplates as $template):
     $bounce_email = e($template['bounce_email']);
     $template_sent = 0;
 
-    //Get list of user emails to send to
+    // Get list of user emails to send to
     $userEmails = $sendEmail->getEmails($tid, $send_limit);
     $add_data = '';
 
     foreach ($userEmails as $emails):
         $user_id = $emails['user_id'];
 
-        //Builds out list ids for inserting records into sent_emails table in 1 query
+        // Builds out list ids for inserting records into sent_emails table in 1 query
         $add_data .= $user_id.',';
 
         $first_name = e($emails['first_name']);
         $user_email = e($emails['email']);
 
-        //Find all links in the html template and replace them with tracking urls
+        // Find all links in the html template and replace them with tracking urls
         $find_href = 'href="';
         $replace_href = 'href="'.$track_url.'?type=link&uid={uid}&tid={tid}&url=';
         $html_email = str_replace($find_href, $replace_href, $html_body);
 
-        //Open tracking image that uses mod_rewrite in .htaccess to reroute to link.php for recording the open
+        // Open tracking image that uses mod_rewrite in .htaccess to reroute to link.php for recording the open
         $open_bug = '<img src="'.SCRIPT_URL.$user_id.'_'.$tid.'_open.gif">';
 
-        //Replace tags in template
+        // Replace tags in template
         $html_email = str_replace('{first_name}',ucfirst($first_name), $html_email);
         $html_email = str_replace('{uid}',$user_id, $html_email);
         $html_email = str_replace('{tid}',$tid, $html_email);
@@ -66,7 +67,7 @@ foreach ($emailTemplates as $template):
         $text_email = str_replace('{uid}',$user_id, $text_email);
         $text_email = str_replace('{tid}',tid, $text_email);
 
-        //If user email is NOT valid this sets send email info to admin so they can clean it from list
+        // If user email is NOT valid this sets send email info to admin so they can clean it from list
         if (!filter_var($user_email, FILTER_VALIDATE_EMAIL) === true) {
             $html_email = 'Invalid user email '.$user_email.' ['.$user_id.']. Please fix or archive this from your list';
             $text_email = 'Invalid user email '.$user_email.' ['.$user_id.']. Please fix or archive this from your list';
@@ -74,8 +75,8 @@ foreach ($emailTemplates as $template):
             $member_email = ADMIN_EMAIL;
         }
 
-        //Compose and send message to mailgun api
-        if ($server == "mailgun") {
+        // Compose and send message to mailgun api
+        if ($server === "mailgun") {
             $mg->sendMessage(DOMAIN_NAME, array(
                 'from' => $from_name . ' <' . $from_email . '>',
                 'to' => $first_name . ' <' . $user_email . '>',
@@ -87,8 +88,8 @@ foreach ($emailTemplates as $template):
             ));
         }
 
-        //Compose and send message to sendgrid api
-        if ($server == "sendgrid") {
+        // Compose and send message to sendgrid api
+        if ($server === "sendgrid") {
 	    $sg_email = new SendGrid\Email();
             $sg_email
                 ->setFromName($from_name)
@@ -112,23 +113,23 @@ foreach ($emailTemplates as $template):
 
         echo 'Sent to: '.$user_id.'<hr>'; //Writes out a list of ids to screen so you can view progress
 
-        $template_sent++; //Gets total sent for just the current drip template. It is cleared back to 0 in template loop
-        $total_sent++; //Keeps running total of emails sent for all active templates
+        $template_sent++; // Gets total sent for just the current drip template. It is cleared back to 0 in template loop
+        $total_sent++; // Keeps running total of emails sent for all active templates
 
     endforeach;
 
-    //Add sent records to sent_emails table
-    if ($add_data != "") {
+    // Add sent records to sent_emails table
+    if (!empty($add_data)) {
         $add_data = rtrim($add_data, ','); //remove trailing comma from last record
         $sendEmail->addSentEmails($add_data, $tid);
     }
 
-    //Add sent batch info to sent_jobs table for recording sent email batches
+    // Add sent batch info to sent_jobs table for recording sent email batches
     if($template_sent > 0) {
         $sendEmail->addBatchRecord($email_type, $template_sent, $server, $start_time, $tid);
     }
     echo '<hr />'.$email_subject.' ['.$tid.'] Sent: '.$template_sent;
 
-endforeach; //End $templates loop
+endforeach; // End $templates loop
 
 echo '<hr />Total Sent: '.$total_sent;
