@@ -1,4 +1,5 @@
 <?php
+
 require 'application/Common.php';
 $recordTracking = new Tracking();
 
@@ -7,7 +8,7 @@ $tid = n($_GET['tid']); //email template id
 $url = e($_GET['url']); //url user clicked
 $type = e($_GET['type']); //link or open
 
-if ($type == "link" && !empty($url)) {
+if ($type === "link" && !empty($url)) {
     $recordTracking->addLinkClick($type, $uid, $tid, $url);
     header("Location: " . $url);
 } else {
