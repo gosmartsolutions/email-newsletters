@@ -26,4 +26,4 @@ Modify the applications/Config.php with your settings. NOTE: You need to have co
 This is a side project we put together to help those who need an email sending program. There may be bugs that we don't know about. If you find any, please let us know. Keep in mind however that we can't guarantee we will make custom changes or additions for free. The software is provided as is. Feel free to add your own contributions and open a pull request or read below if you want to hire us for customizations.
 
 ## Want to hire us for customizations?
-Would you like help installing this on your server or do you need help with customizations? Contact Us at https://www.gosmartsolutions.com/#contact and we'll provide you with a quote based on your requirements.
+Would you like help installing this on your server or do you need help with customizations? Contact Us at https://www.gosmartsolutions.com/ and we'll provide you with a quote based on your requirements.
