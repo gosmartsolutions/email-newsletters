@@ -111,16 +111,15 @@ foreach ($emailTemplates as $template):
             $sg_email = '';
         }
 
-        echo 'Sent to: '.$user_id.'<hr>'; //Writes out a list of ids to screen so you can view progress
+        echo 'Sent to: '.$user_id.'<hr>'; // Writes out a list of ids to screen so you can view progress
 
         $template_sent++; // Gets total sent for just the current drip template. It is cleared back to 0 in template loop
         $total_sent++; // Keeps running total of emails sent for all active templates
-
     endforeach;
 
     // Add sent records to sent_emails table
     if (!empty($add_data)) {
-        $add_data = rtrim($add_data, ','); //remove trailing comma from last record
+        $add_data = rtrim($add_data, ','); // Remove trailing comma from last record
         $sendEmail->addSentEmails($add_data, $tid);
     }
 
@@ -129,7 +128,6 @@ foreach ($emailTemplates as $template):
         $sendEmail->addBatchRecord($email_type, $template_sent, $server, $start_time, $tid);
     }
     echo '<hr />'.$email_subject.' ['.$tid.'] Sent: '.$template_sent;
-
 endforeach; // End $templates loop
 
 echo '<hr />Total Sent: '.$total_sent;
